@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Blood Pal</string>
+    <string name="about">some random text that will be replaced soon</string>
 </resources>
