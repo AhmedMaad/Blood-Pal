@@ -21,7 +21,7 @@
         android:id="@+id/donation_iv"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="56dp"
         android:src="@drawable/give_blood"
         app:layout_constraintEnd_toEndOf="@id/container_cv"
         app:layout_constraintStart_toStartOf="@id/container_cv"
@@ -40,13 +40,14 @@
         android:textSize="22sp"
         app:backgroundTint="@color/pink"
         app:cornerRadius="8dp"
-        app:icon="@drawable/give_blood"
+        app:icon="@drawable/give_heart"
         app:iconGravity="textStart"
         app:iconSize="40dp"
         app:iconTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/container_cv"
         app:layout_constraintEnd_toEndOf="@id/container_cv"
         app:layout_constraintStart_toStartOf="@id/container_cv"
-        app:layout_constraintTop_toBottomOf="@id/donation_iv" />
+        app:layout_constraintTop_toTopOf="@id/container_cv" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/donation_wanted_btn"
