@@ -13,7 +13,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="32dp"
         app:cardCornerRadius="12dp"
         app:cardElevation="0dp" />
 
@@ -22,26 +22,27 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/back_btn"
-        app:layout_constraintStart_toStartOf="@id/container_cv"
-        app:layout_constraintTop_toTopOf="@id/container_cv" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/profile_cv"
         android:layout_width="96dp"
         android:layout_height="96dp"
+        android:layout_marginTop="16dp"
         app:cardCornerRadius="48dp"
         app:cardElevation="6dp"
         app:layout_constraintEnd_toEndOf="@id/container_cv"
         app:layout_constraintStart_toStartOf="@id/container_cv"
-        app:layout_constraintTop_toBottomOf="@id/back_btn">
+        app:layout_constraintTop_toTopOf="@id/container_cv">
 
         <ImageView
             android:id="@+id/profile_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher_background" />
+            android:src="@drawable/profile" />
 
     </androidx.cardview.widget.CardView>
 
@@ -50,7 +51,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:hint="Email"
         android:textColorHint="@color/black"
@@ -70,18 +71,41 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/phone_container"
+        android:id="@+id/password_container"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="32dp"
-        android:hint="Phone number"
+        android:hint="Password"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="@id/container_cv"
         app:layout_constraintStart_toStartOf="@id/container_cv"
         app:layout_constraintTop_toBottomOf="@id/email_container">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password_et"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/pink"
+            android:gravity="center"
+            android:inputType="textPassword"
+            android:textSize="18sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phone_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:hint="Phone number"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="@id/container_cv"
+        app:layout_constraintStart_toStartOf="@id/container_cv"
+        app:layout_constraintTop_toBottomOf="@id/password_container">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/phone_et"
@@ -95,80 +119,52 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/gender_container"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        android:hint="Gender"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toStartOf="@id/id_container"
-        app:layout_constraintStart_toStartOf="@id/container_cv"
-        app:layout_constraintTop_toBottomOf="@id/phone_container"
-        app:startIconDrawable="@color/black">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/gender_et"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/pink"
-            android:gravity="center"
-            android:textSize="18sp" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/id_container"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="32dp"
         android:hint="ID"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="@id/container_cv"
-        app:layout_constraintStart_toEndOf="@id/gender_container"
-        app:layout_constraintTop_toBottomOf="@id/phone_container"
-        app:startIconDrawable="@color/black">
+        app:layout_constraintStart_toStartOf="@id/phone_container"
+        app:layout_constraintTop_toBottomOf="@id/phone_container">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/id_et"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/pink"
+            android:drawableStart="@drawable/identity_card"
             android:gravity="center"
             android:inputType="number"
             android:textSize="18sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/password_container"
-        android:layout_width="0dp"
+    
+    <TextView
+        android:id="@+id/gender_tv"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
+        android:drawableStart="@drawable/gender"
+        android:drawablePadding="8dp"
+        android:text="Gender:"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/phone_container"
+        app:layout_constraintTop_toBottomOf="@id/id_container" />
+
+    <Spinner
+        android:id="@+id/gender_spinner"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="32dp"
-        android:hint="Password"
-        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/gender_tv"
         app:layout_constraintEnd_toEndOf="@id/container_cv"
-        app:layout_constraintStart_toStartOf="@id/container_cv"
-        app:layout_constraintTop_toBottomOf="@id/gender_container">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/password_et"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/pink"
-            android:gravity="center"
-            android:inputType="textPassword"
-            android:textSize="18sp" />
-
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintStart_toEndOf="@id/gender_tv"
+        app:layout_constraintTop_toTopOf="@id/gender_tv" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="wrap_content"

@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Blood Pal</string>
-    <string name="about">some random text that will be replaced soon</string>
+    <string name="about">It’s a non-profit committed application with a great accessibility of Blood products, thereby enabling beneficiaries (Patients) an opportunity for accessing the desired treatment to save lives, while canvassing Blood Donation, and, all while maintaining Compassion, Carefulness and Reliability that will:
+1- Help patients to find the nearest donators with a specific blood type to donate.
+2- Encourage Donators to donate without worry.
+3- Helps saving lives at times of emergencies and crisis and patients who needs a day-to-day medical review and blood/platelets/plasma transfer.</string>
 </resources>

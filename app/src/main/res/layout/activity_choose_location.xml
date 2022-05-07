@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".ChooseLocationActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/container_cv"
@@ -27,64 +27,38 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:src="@drawable/location"
+        app:layout_constraintBottom_toBottomOf="@id/container_cv"
+        app:layout_constraintEnd_toEndOf="@id/container_cv"
+        app:layout_constraintStart_toStartOf="@id/container_cv"
+        app:layout_constraintTop_toTopOf="@id/container_cv" />
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/email_container"
+        android:id="@+id/location_container"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="96dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="96dp"
-        android:hint="Email"
+        android:hint="Enter Location"
         android:textColorHint="@color/black"
-        app:layout_constraintBottom_toBottomOf="@id/container_cv"
         app:layout_constraintEnd_toEndOf="@id/container_cv"
         app:layout_constraintStart_toStartOf="@id/container_cv"
         app:layout_constraintTop_toTopOf="@id/container_cv">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/email_et"
+            android:id="@+id/location_et"
             android:layout_width="match_parent"
+            android:drawableStart="@drawable/current_location"
             android:layout_height="match_parent"
             android:background="@color/pink"
             android:gravity="center"
-            android:inputType="textEmailAddress"
             android:textSize="18sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/password_container"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:hint="Password"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="@id/container_cv"
-        app:layout_constraintStart_toStartOf="@id/container_cv"
-        app:layout_constraintTop_toBottomOf="@id/email_container">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/password_et"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/pink"
-            android:gravity="center"
-            android:inputType="textPassword"
-            android:textSize="18sp" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:text="Forgot password?"
-        android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@id/password_container" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/login_btn"
@@ -92,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:background="@color/pink"
-        android:text="Log in"
+        android:text="Enter"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="@id/container_cv"
         app:layout_constraintEnd_toEndOf="@id/container_cv" />
