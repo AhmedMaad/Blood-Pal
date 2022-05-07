@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChooseLocationActivity">
+    tools:context=".UserTypeActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/container_cv"
@@ -27,50 +27,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:layout_width="240dp"
-        android:layout_height="240dp"
-        android:src="@drawable/location"
-        app:layout_constraintBottom_toBottomOf="@id/container_cv"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/patient_btn"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/pink"
+        android:text="Patient"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:cornerRadius="8dp"
+        app:layout_constraintBottom_toTopOf="@id/donor_btn"
         app:layout_constraintEnd_toEndOf="@id/container_cv"
         app:layout_constraintStart_toStartOf="@id/container_cv"
         app:layout_constraintTop_toTopOf="@id/container_cv" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/location_container"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="96dp"
-        android:layout_marginEnd="8dp"
-        android:hint="Enter Location"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="@id/container_cv"
-        app:layout_constraintStart_toStartOf="@id/container_cv"
-        app:layout_constraintTop_toTopOf="@id/container_cv">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/location_et"
-            android:layout_width="match_parent"
-            android:drawableStart="@drawable/current_location"
-            android:layout_height="match_parent"
-            android:background="@color/pink"
-            android:gravity="center"
-            android:textSize="18sp" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/login_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:id="@+id/donor_btn"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
         android:backgroundTint="@color/pink"
-        android:textColor="@color/black"
-        app:cornerRadius="8dp"
-        android:text="Enter"
+        android:text="Donor"
         android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="@id/container_cv"
-        app:layout_constraintEnd_toEndOf="@id/container_cv" />
+        app:layout_constraintStart_toStartOf="@id/patient_btn"
+        app:layout_constraintTop_toBottomOf="@id/patient_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

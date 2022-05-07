@@ -141,7 +141,7 @@
             android:textSize="18sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
-    
+
     <TextView
         android:id="@+id/gender_tv"
         android:layout_width="wrap_content"
@@ -166,11 +166,13 @@
         app:layout_constraintStart_toEndOf="@id/gender_tv"
         app:layout_constraintTop_toTopOf="@id/gender_tv" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:background="@color/pink"
+        android:backgroundTint="@color/pink"
+        android:textColor="@color/black"
+        app:cornerRadius="8dp"
         android:text="next"
         app:layout_constraintBottom_toBottomOf="@id/container_cv"
         app:layout_constraintEnd_toEndOf="@id/container_cv" />

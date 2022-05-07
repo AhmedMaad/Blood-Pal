@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BloodPal">
         <activity
+            android:name=".PatientHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DonorHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserTypeActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChooseLocationActivity"
             android:exported="false" />
         <activity
