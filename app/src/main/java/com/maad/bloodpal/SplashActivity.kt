@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.maad.bloodpal.databinding.ActivitySplashBinding
+import com.maad.bloodpal.registeration.LoginActivity
+import com.maad.bloodpal.registeration.SignUpActivity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

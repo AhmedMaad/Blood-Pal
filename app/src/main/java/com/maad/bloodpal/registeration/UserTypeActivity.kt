@@ -1,4 +1,4 @@
-package com.maad.bloodpal
+package com.maad.bloodpal.registeration
 
 import android.content.Intent
 import android.net.Uri
@@ -14,9 +14,12 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import com.maad.bloodpal.RegisteredUser
+import com.maad.bloodpal.User
 import com.maad.bloodpal.databinding.ActivityUserTypeBinding
+import com.maad.bloodpal.donor.DonorHomeActivity
+import com.maad.bloodpal.patient.PatientHomeActivity
 import java.util.*
-import kotlin.collections.HashMap
 
 class UserTypeActivity : AppCompatActivity() {
 

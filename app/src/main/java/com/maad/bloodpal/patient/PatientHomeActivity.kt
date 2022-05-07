@@ -1,4 +1,4 @@
-package com.maad.bloodpal
+package com.maad.bloodpal.patient
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

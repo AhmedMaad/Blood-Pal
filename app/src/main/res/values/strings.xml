@@ -4,4 +4,5 @@
 \n\n1- Help patients to find the nearest donators with a specific blood type to donate.
 \n\n2- Encourage Donators to donate without worry.
 \n\n3- Helps saving lives at times of emergencies and crisis and patients who needs a day-to-day medical review and blood/platelets/plasma transfer.</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

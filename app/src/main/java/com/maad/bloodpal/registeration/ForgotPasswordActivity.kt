@@ -1,4 +1,4 @@
-package com.maad.bloodpal
+package com.maad.bloodpal.registeration
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package com.maad.bloodpal
+package com.maad.bloodpal.registeration
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +11,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.maad.bloodpal.databinding.ActivityLoginBinding
+import com.maad.bloodpal.donor.DonorHomeActivity
+import com.maad.bloodpal.patient.PatientHomeActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -26,8 +28,10 @@ class LoginActivity : AppCompatActivity() {
         binding.backBtn.setOnClickListener { finish() }
 
         binding.loginBtn.setOnClickListener {
-            val email = binding.emailEt.text.toString()
-            val password = binding.passwordEt.text.toString()
+            //val email = binding.emailEt.text.toString()
+            //val password = binding.passwordEt.text.toString()
+            val email = "a@gmail.com"
+            val password = "123456"
             if (email.isEmpty() || password.isEmpty())
                 Toast.makeText(this, "Important Fields are missing", Toast.LENGTH_SHORT).show()
             else {
