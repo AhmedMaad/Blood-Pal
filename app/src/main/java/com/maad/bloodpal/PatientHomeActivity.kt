@@ -2,10 +2,12 @@ package com.maad.bloodpal
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.maad.bloodpal.databinding.ActivityPatientHomeBinding
 
 class PatientHomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_patient_home)
+        val binding = ActivityPatientHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 }

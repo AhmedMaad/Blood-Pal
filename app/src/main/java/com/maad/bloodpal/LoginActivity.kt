@@ -9,5 +9,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.backBtn.setOnClickListener { finish() }
+
     }
 }
