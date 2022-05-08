@@ -43,8 +43,7 @@ class ChooseLocationActivity : AppCompatActivity() {
                 val animation = AnimationUtils.loadAnimation(this, R.anim.zoom_out)
                 binding.locationContainer.startAnimation(animation)
             } else {
-                val requestType = intent.getStringExtra("requestType")
-                val activity = when (requestType) {
+                val activity = when (intent.getStringExtra("requestType")) {
                     "giveDonation" -> AvailableHospitalsActivity::class.java
                     else -> HospitalRequestsActivity::class.java //else "donationWanted"
                 }
@@ -75,20 +74,25 @@ class ChooseLocationActivity : AppCompatActivity() {
                 )
             } else {
 
-                fusedLocationClient.getCurrentLocation(LocationRequest.PRIORITY_HIGH_ACCURACY,object : CancellationToken(){
-                    override fun onCanceledRequested(p0: OnTokenCanceledListener): CancellationToken {
-                        return CancellationTokenSource().token
-                    }
+                val animation = AnimationUtils.loadAnimation(this, R.anim.rotation)
+                binding.mapIv.startAnimation(animation)
 
-                    override fun isCancellationRequested() = false
-                })
+                fusedLocationClient.getCurrentLocation(LocationRequest.PRIORITY_HIGH_ACCURACY,
+                    object : CancellationToken() {
+                        override fun onCanceledRequested(p0: OnTokenCanceledListener): CancellationToken {
+                            return CancellationTokenSource().token
+                        }
+
+                        override fun isCancellationRequested() = false
+                    })
                     .addOnSuccessListener { location: Location? ->
+                        binding.mapIv.clearAnimation()
                         if (location == null)
                             Toast.makeText(
                                 this,
                                 "Cannot get location, try again later",
                                 Toast.LENGTH_SHORT
-                            ).show();
+                            ).show()
                         else {
                             lat = location.latitude
                             lon = location.longitude

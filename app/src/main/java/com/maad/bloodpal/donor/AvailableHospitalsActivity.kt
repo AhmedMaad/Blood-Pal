@@ -10,6 +10,11 @@ class AvailableHospitalsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityAvailableHospitalsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.foldingCell.setOnClickListener {
+            binding.foldingCell.toggle(false)
+        }
+
     }
 
 }

@@ -28,6 +28,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:id="@+id/map_iv"
         android:layout_width="240dp"
         android:layout_height="240dp"
         android:src="@drawable/location"
@@ -72,7 +73,6 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/confirm_location_btn"
         android:layout_width="wrap_content"
@@ -85,10 +85,5 @@
         app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="@id/container_cv"
         app:layout_constraintEnd_toEndOf="@id/container_cv" />
-
-    <!--shoof location animation progress bar-->
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
