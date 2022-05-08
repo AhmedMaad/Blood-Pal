@@ -4,7 +4,7 @@
     <color name="purple_500">@color/blood</color>
     <color name="purple_700">@color/blood</color>
     <color name="teal_200">@color/blood</color>
-    <color name="teal_700">#FF018786</color>
+    <color name="teal_700">@color/blood</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blood">#880808</color>
