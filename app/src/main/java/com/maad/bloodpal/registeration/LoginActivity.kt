@@ -69,17 +69,18 @@ class LoginActivity : AppCompatActivity() {
 
     private fun getData(id: String) {
 
-        val editor = getSharedPreferences("user_settings", MODE_PRIVATE).edit()
-        editor.putString("id", id)
-        //editor.putString("type",userType)
-        editor.apply()
-
         db
             .collection("users")
             .document(id)
             .get()
             .addOnSuccessListener {
                 userType = it.get("userType") as String
+
+                val editor = getSharedPreferences("user_settings", MODE_PRIVATE).edit()
+                editor.putString("id", id)
+                editor.putString("userType", userType)
+                editor.apply()
+
                 when (userType) {
                     "Donor" -> {
                         val i = Intent(this, DonorHomeActivity::class.java)

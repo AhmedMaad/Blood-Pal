@@ -112,7 +112,7 @@ class UserTypeActivity : AppCompatActivity() {
 
                 val editor = getSharedPreferences("user_settings", MODE_PRIVATE).edit()
                 editor.putString("id", userId)
-                //editor.putString("type",userType)
+                editor.putString("userType",userType)
                 editor.apply()
 
                 when(userType){

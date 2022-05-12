@@ -27,15 +27,27 @@
         app:layout_constraintStart_toStartOf="@id/container_cv"
         app:layout_constraintTop_toTopOf="@id/container_cv" />
 
+    <TextView
+        android:id="@+id/status_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Health Status: "
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/donation_iv"
+        app:layout_constraintStart_toStartOf="@id/donation_iv"
+        app:layout_constraintTop_toBottomOf="@id/donation_iv" />
+
     <CheckBox
         android:id="@+id/emergency_cb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Emergency"
-        app:layout_constraintEnd_toEndOf="@id/container_cv"
-        app:layout_constraintStart_toStartOf="@id/container_cv"
-        app:layout_constraintTop_toBottomOf="@id/donation_iv" />
+        app:layout_constraintStart_toStartOf="@id/status_tv"
+        app:layout_constraintTop_toBottomOf="@id/status_tv" />
 
     <CheckBox
         android:id="@+id/pressure_cb"

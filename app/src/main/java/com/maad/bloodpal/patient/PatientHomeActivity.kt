@@ -16,7 +16,7 @@ class PatientHomeActivity : AppCompatActivity() {
         }
 
         binding.makeRequestBtn.setOnClickListener {
-
+            startActivity(Intent(this, HealthStatusActivity::class.java))
         }
 
     }

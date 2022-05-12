@@ -6,51 +6,109 @@ import android.content.pm.PackageManager
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.core.view.isVisible
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.tasks.CancellationToken
 import com.google.android.gms.tasks.CancellationTokenSource
 import com.google.android.gms.tasks.OnTokenCanceledListener
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.maad.bloodpal.R
 import com.maad.bloodpal.databinding.ActivityChooseLocationBinding
 import com.maad.bloodpal.donor.AvailableHospitalsActivity
 import com.maad.bloodpal.donor.HospitalRequestsActivity
+import com.maad.bloodpal.patient.PatientHomeActivity
+import com.maad.bloodpal.patient.PatientRequest
 
 class ChooseLocationActivity : AppCompatActivity() {
 
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private var lat = 0.0
     private var lon = 0.0
+    private lateinit var db: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityChooseLocationBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        db = Firebase.firestore
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
         binding.backBtn.setOnClickListener { finish() }
 
+        val prefs = getSharedPreferences("user_settings", MODE_PRIVATE)
+
         binding.confirmLocationBtn.setOnClickListener {
+            //Determining userType
+            val userType = prefs.getString("userType", null)
 
             val location = binding.locationTv.text.toString()
-            if (location == "Get Location") {
-                Toast.makeText(this, "Click \"Get location\" first", Toast.LENGTH_LONG).show()
-                val animation = AnimationUtils.loadAnimation(this, R.anim.zoom_out)
-                binding.locationContainer.startAnimation(animation)
-            } else {
-                val activity = when (intent.getStringExtra("requestType")) {
-                    "giveDonation" -> AvailableHospitalsActivity::class.java
-                    else -> HospitalRequestsActivity::class.java //else "donationWanted"
+            when {
+                location == "Get Location" -> {
+                    Toast.makeText(this, "Click \"Get location\" first", Toast.LENGTH_LONG).show()
+                    val animation = AnimationUtils.loadAnimation(this, R.anim.zoom_out)
+                    binding.locationContainer.startAnimation(animation)
                 }
-                val i = Intent(this, activity)
-                i.putExtra("lat", lat)
-                i.putExtra("lon", lon)
-                startActivity(i)
+                userType == "Patient" -> {
+                    binding.progress.visibility = View.VISIBLE
+                    binding.confirmLocationBtn.visibility = View.INVISIBLE
+
+                    val userId = prefs.getString("id", null)
+                    val health = intent.getStringArrayListExtra("health")
+
+                    val request = PatientRequest(lat, lon, health!!, userId!!)
+                    db
+                        .collection("patientRequests")
+                        .add(request)
+                        .addOnSuccessListener {
+                            val data = mutableMapOf<String, String>()
+                            data["requestId"] = it.id
+                            it.update(data as Map<String, Any>).addOnSuccessListener {
+                                binding.progress.visibility = View.INVISIBLE
+                                binding.confirmLocationBtn.visibility = View.VISIBLE
+                                Toast.makeText(
+                                    this,
+                                    "Request sent, check notification icon",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                                startActivity(Intent(this, PatientHomeActivity::class.java))
+                                finish()
+                            }
+                                .addOnFailureListener {
+                                    Toast.makeText(
+                                        this,
+                                        "Error making the request",
+                                        Toast.LENGTH_SHORT
+                                    )
+                                        .show();
+                                    binding.progress.visibility = View.INVISIBLE
+                                    binding.confirmLocationBtn.visibility = View.VISIBLE
+                                }
+                        }
+
+                    //hena nshoof lw hwa patient fa nb3t el location directly to server
+                    //then navigate to patient home page
+                    //send it to location then send everything to server including user id, type, health status
+                    //id, location, phone number, ...etc.
+                }
+                else -> {
+                    val activity = when (intent.getStringExtra("requestType")) {
+                        "giveDonation" -> AvailableHospitalsActivity::class.java
+                        else -> HospitalRequestsActivity::class.java //else "donationWanted"
+                    }
+                    val i = Intent(this, activity)
+                    i.putExtra("lat", lat)
+                    i.putExtra("lon", lon)
+                    startActivity(i)
+                }
             }
 
         }
