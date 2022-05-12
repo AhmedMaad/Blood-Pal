@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BloodPal">
         <activity
+            android:name=".donor.DonorProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".patient.PatientProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".YourActivity"
             android:exported="false" />
         <activity
@@ -24,11 +30,6 @@
         <activity
             android:name=".donor.AvailableHospitalsActivity"
             android:exported="false" />
-
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCU18KbbXIi9xXloZa4VLuOLntjpKGekfU" />
-
         <activity
             android:name=".registeration.ForgotPasswordActivity"
             android:exported="false" />
@@ -45,7 +46,7 @@
             android:name=".location.ChooseLocationActivity"
             android:exported="false" />
         <activity
-            android:name=".registeration.SignUpActivity"
+            android:name=".registeration.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"
@@ -54,7 +55,7 @@
             android:name=".AboutActivity"
             android:exported="false" />
         <activity
-            android:name=".registeration.LoginActivity"
+            android:name=".registeration.SignUpActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -63,6 +64,9 @@
             </intent-filter>
         </activity>
 
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCU18KbbXIi9xXloZa4VLuOLntjpKGekfU" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

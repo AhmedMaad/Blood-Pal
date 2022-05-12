@@ -70,4 +70,13 @@
         app:layout_constraintStart_toStartOf="@id/container_cv"
         app:layout_constraintTop_toBottomOf="@id/make_donation_btn" />
 
+    <ImageView
+        android:id="@+id/profile_iv"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/ic_profile"
+        app:layout_constraintBottom_toTopOf="@id/container_cv"
+        app:layout_constraintEnd_toEndOf="@id/container_cv" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
