@@ -39,10 +39,10 @@
         app:layout_constraintTop_toTopOf="@id/container_cv">
 
         <ImageView
-            android:scaleType="centerCrop"
             android:id="@+id/profile_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
             android:src="@drawable/profile" />
 
     </androidx.cardview.widget.CardView>
@@ -155,9 +155,9 @@
         android:text="Gender:"
         android:textColor="@color/black"
         android:textSize="18sp"
+        app:drawableStartCompat="@drawable/gender"
         app:layout_constraintStart_toStartOf="@id/phone_container"
-        app:layout_constraintTop_toBottomOf="@id/id_container"
-        app:drawableStartCompat="@drawable/gender" />
+        app:layout_constraintTop_toBottomOf="@id/id_container" />
 
     <Spinner
         android:id="@+id/gender_spinner"
@@ -172,13 +172,10 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/next_btn"
+        style="@style/BtnStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:backgroundTint="@color/pink"
         android:text="next"
-        android:textColor="@color/black"
-        app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="@id/container_cv"
         app:layout_constraintEnd_toEndOf="@id/container_cv" />
 

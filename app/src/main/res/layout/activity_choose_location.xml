@@ -75,14 +75,10 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/confirm_location_btn"
+        style="@style/BtnStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:backgroundTint="@color/pink"
         android:text="Confirm location"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="@id/container_cv"
         app:layout_constraintEnd_toEndOf="@id/container_cv" />
 
