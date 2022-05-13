@@ -13,6 +13,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BloodPal">
         <activity
+            android:name=".hospital.LateDonorsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".hospital.AcceptPatientRequestsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".hospital.FillDonorProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".hospital.FillPatientProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".hospital.HospitalProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".hospital.HospitalHomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".patient.HealthStatusActivity"
             android:exported="false" />
         <activity
