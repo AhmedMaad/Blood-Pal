@@ -19,9 +19,9 @@
 
     <ImageView
         android:id="@+id/blood_iv"
-        android:layout_width="260dp"
+        android:layout_width="240dp"
         android:layout_height="192dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="56dp"
         android:scaleType="fitXY"
         android:src="@drawable/blood_pal_logo"
         app:layout_constraintEnd_toEndOf="@id/container_cv"
@@ -37,7 +37,7 @@
         android:gravity="center"
         android:text="Blood Pal"
         android:textColor="@color/black"
-        android:textSize="56sp"
+        android:textSize="48sp"
         app:layout_constraintTop_toBottomOf="@id/blood_iv" />
 
     <TextView
@@ -47,7 +47,7 @@
         android:fontFamily="sans-serif-condensed"
         android:gravity="center"
         android:text="-Blood - Our lifeline-"
-        android:textSize="28sp"
+        android:textSize="24sp"
         app:layout_constraintTop_toBottomOf="@id/blood_pal_tv" />
 
     <TextView
@@ -64,7 +64,7 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="8dp"
+        android:layout_width="4dp"
         android:layout_height="32dp"
         android:layout_marginBottom="24dp"
         android:background="@color/black"
@@ -87,8 +87,8 @@
 
     <ImageView
         android:id="@+id/about_iv"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_marginBottom="8dp"
         android:src="@drawable/info"
         app:layout_constraintBottom_toTopOf="@id/container_cv"

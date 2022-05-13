@@ -22,9 +22,6 @@
             android:name=".patient.PatientProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".YourActivity"
-            android:exported="false" />
-        <activity
             android:name=".donor.HospitalDetailsActivity"
             android:exported="false" />
         <activity
@@ -52,13 +49,13 @@
             android:name=".registeration.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".registeration.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".AboutActivity"
             android:exported="false" />
         <activity
-            android:name=".registeration.LoginActivity"
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
