@@ -17,7 +17,7 @@
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_forgot_password.xml" value="0.1921875" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_health_status.xml" value="0.25" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_hospital_details.xml" value="0.1921875" />
-        <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_hospital_home.xml" value="0.1921875" />
+        <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_hospital_home.xml" value="0.17" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_hospital_profile.xml" value="0.25" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_hospital_requests.xml" value="0.1921875" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_late_donors.xml" value="0.1921875" />
@@ -30,6 +30,7 @@
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_user_type.xml" value="0.1921875" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_your.xml" value="0.1921875" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/hospital_list_item.xml" value="0.1921875" />
+        <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/hospital_service_list_item.xml" value="0.25" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.142" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.142" />
       </map>

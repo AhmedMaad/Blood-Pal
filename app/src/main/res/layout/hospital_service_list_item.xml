@@ -1,0 +1,22 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:layout_marginStart="32dp"
+    android:id="@+id/parent"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="32dp"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="12dp">
+
+    <TextView
+        android:id="@+id/services_tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textColor="@color/blood"
+        android:textSize="28sp"
+        tools:text="@tools:sample/full_names" />
+
+</androidx.cardview.widget.CardView>

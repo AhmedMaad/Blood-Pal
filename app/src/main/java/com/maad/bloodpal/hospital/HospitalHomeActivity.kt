@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.maad.bloodpal.databinding.ActivityHospitalHomeBinding
 
 class HospitalHomeActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityHospitalHomeBinding.inflate(layoutInflater)
@@ -15,8 +16,15 @@ class HospitalHomeActivity : AppCompatActivity() {
             startActivity(Intent(this, HospitalProfileActivity::class.java))
         }
 
-        //"Fill patient profile - fill donor profile
-        // - accept patient requests - send email to late donors
+        val services = arrayListOf<String>()
+        services.add("Fill patients profile")
+        services.add("Fill donors profile")
+        services.add("View patients requests")
+        services.add("Check late donors")
+
+        val adapter = ServiceAdapter(this, services)
+        binding.servicesRv.adapter = adapter
 
     }
+
 }

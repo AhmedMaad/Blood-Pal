@@ -16,7 +16,7 @@
             android:name=".hospital.LateDonorsActivity"
             android:exported="false" />
         <activity
-            android:name=".hospital.AcceptPatientRequestsActivity"
+            android:name=".hospital.PatientRequestsActivity"
             android:exported="false" />
         <activity
             android:name=".hospital.FillDonorProfileActivity"
