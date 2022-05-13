@@ -21,6 +21,7 @@ class HospitalHomeActivity : AppCompatActivity() {
         services.add("Fill donors profile")
         services.add("View patients requests")
         services.add("Check late donors")
+        services.add("Request donations")
 
         val adapter = ServiceAdapter(this, services)
         binding.servicesRv.adapter = adapter

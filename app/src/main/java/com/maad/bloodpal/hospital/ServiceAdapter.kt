@@ -34,7 +34,8 @@ class ServiceAdapter(val activity: Activity, val services: ArrayList<String>) :
                 0 -> FillPatientProfileActivity::class.java
                 1 -> FillDonorProfileActivity::class.java
                 2 -> PatientRequestsActivity::class.java
-                else -> LateDonorsActivity::class.java
+                3 -> LateDonorsActivity::class.java
+                else -> RequestDonationActivity::class.java
             }
             activity.startActivity(Intent(activity, destinationActivity))
         }
