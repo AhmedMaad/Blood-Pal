@@ -9,5 +9,8 @@ class HospitalProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityHospitalProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        /*Email Subject: Request Profile Edit for "Hospital Name"*/
+
     }
 }

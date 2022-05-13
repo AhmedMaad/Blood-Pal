@@ -8,14 +8,9 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/container_cv"
+        style="@style/Container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="0dp" />
+        android:layout_height="match_parent" />
 
     <ImageView
         android:id="@+id/donation_iv"

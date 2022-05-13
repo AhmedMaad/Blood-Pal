@@ -12,6 +12,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.maad.bloodpal.databinding.ActivityLoginBinding
 import com.maad.bloodpal.donor.DonorHomeActivity
+import com.maad.bloodpal.hospital.HospitalHomeActivity
 import com.maad.bloodpal.patient.PatientHomeActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -30,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
         binding.loginBtn.setOnClickListener {
             //val email = binding.emailEt.text.toString()
             //val password = binding.passwordEt.text.toString()
-            val email = "p1@gmail.com"
+            val email = "hospital1@gmail.com"
             val password = "123456"
             if (email.isEmpty() || password.isEmpty())
                 Toast.makeText(this, "Important Fields are missing", Toast.LENGTH_SHORT).show()
@@ -89,6 +90,11 @@ class LoginActivity : AppCompatActivity() {
                     }
                     "Patient" -> {
                         val i = Intent(this, PatientHomeActivity::class.java)
+                        startActivity(i)
+                        finishAffinity()
+                    }
+                    "Hospital" -> {
+                        val i = Intent(this, HospitalHomeActivity::class.java)
                         startActivity(i)
                         finishAffinity()
                     }

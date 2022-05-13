@@ -6,4 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".hospital.HospitalHomeActivity">
 
+    <!--make this image at the end of the recycler view-->
+    <ImageView
+        android:id="@+id/profile_iv"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/ic_profile" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
