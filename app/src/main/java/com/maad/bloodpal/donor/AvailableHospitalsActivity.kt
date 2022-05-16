@@ -11,9 +11,9 @@ class AvailableHospitalsActivity : AppCompatActivity() {
         val binding = ActivityAvailableHospitalsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.foldingCell.setOnClickListener {
-            binding.foldingCell.toggle(false)
-        }
+        //Hide loading text view after data is fetched from server
+
+        //request all hospitals then sort using their location and the location chosen from previous activity
 
     }
 

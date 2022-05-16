@@ -48,7 +48,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/rating_iv"
-                    tools:src="@drawable/kasr" />
+                    tools:src="@tools:sample/avatars" />
 
                 <TextView
                     android:id="@+id/name_tv"

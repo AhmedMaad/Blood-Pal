@@ -9,5 +9,10 @@ class RequestDonationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityRequestDonationBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        /*
+        - Needed Blood Type
+        - 3add akyas el dam*/
+
     }
 }
