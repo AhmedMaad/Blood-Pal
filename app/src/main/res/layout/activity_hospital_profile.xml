@@ -42,12 +42,13 @@
 
                 <ImageView
                     android:id="@+id/profile_iv"
-                    android:layout_width="160dp"
+                    android:layout_width="176dp"
                     android:layout_height="wrap_content"
+                    android:minHeight="132dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/rating_iv"
-                    tools:src="@tools:sample/avatars" />
+                    tools:src="@drawable/kasr" />
 
                 <TextView
                     android:id="@+id/name_tv"
@@ -95,10 +96,11 @@
 
                 <TextView
                     android:id="@+id/address_value_tv"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
                     android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@id/address_key_tv"
                     app:layout_constraintTop_toBottomOf="@id/address_key_tv"
                     tools:text="Location for the place" />
@@ -152,10 +154,11 @@
 
                 <TextView
                     android:id="@+id/days_value_tv"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
                     android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@id/address_value_tv"
                     app:layout_constraintTop_toBottomOf="@id/days_key_tv"
                     tools:text="Open All Days" />

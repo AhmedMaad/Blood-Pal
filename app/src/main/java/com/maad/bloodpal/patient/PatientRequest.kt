@@ -6,5 +6,5 @@ class PatientRequest(
     val lon: Double = 0.0,
     val healthStatus: ArrayList<String> = arrayListOf(),
     val userId: String = "",
-    val requestId: String = ""
+    val requestId: String = "",
 )

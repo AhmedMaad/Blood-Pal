@@ -3,6 +3,7 @@ package com.maad.bloodpal.hospital
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.net.toUri
 import com.bumptech.glide.Glide
@@ -43,11 +44,13 @@ class HospitalProfileActivity : AppCompatActivity() {
                     .with(this)
                     .load(hospital.logo)
                     .into(binding.profileIv)
+                Log.d("trace", "Logo: ${hospital.logo}")
             }
 
         binding.requestEditBtn.setOnClickListener {
-            val i = Intent(Intent.ACTION_SEND)
+            val i = Intent(Intent.ACTION_SEND, "mailto:".toUri())
             i.type = "*/*"
+            i.putExtra(Intent.EXTRA_EMAIL, arrayOf("bloodpalsupport2022@gmail.com"))
             i.putExtra(Intent.EXTRA_SUBJECT, "Request Profile Edit for \"${hospital.name}\"")
             startActivity(i)
         }

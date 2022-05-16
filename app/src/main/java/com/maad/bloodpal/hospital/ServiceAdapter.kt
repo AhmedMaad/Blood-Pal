@@ -19,14 +19,12 @@ class ServiceAdapter(val activity: Activity, val services: ArrayList<String>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ServiceVH {
-        Log.d("trace", "creating...")
         val view =
             activity.layoutInflater.inflate(R.layout.hospital_service_list_item, parent, false)
         return ServiceVH(view)
     }
 
     override fun onBindViewHolder(holder: ServiceVH, position: Int) {
-        Log.d("trace", "binding...")
         holder.serviceTV.text = services[position]
 
         holder.parent.setOnClickListener {
