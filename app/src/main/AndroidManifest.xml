@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BloodPal">
         <activity
+            android:name=".donor.DonorHospitalProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".hospital.RequestDonationActivity"
             android:exported="false" />
         <activity

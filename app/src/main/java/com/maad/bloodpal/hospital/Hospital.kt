@@ -1,5 +1,9 @@
 package com.maad.bloodpal.hospital
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 class Hospital(
     val id: String = "",
     val userType: String = "",
@@ -13,4 +17,4 @@ class Hospital(
     val lat: Double = 0.0,
     val lon: Double = 0.0,
     val logo: String = ""
-)
+) : Parcelable
