@@ -7,7 +7,6 @@ import kotlinx.parcelize.Parcelize
 class Hospital(
     val id: String = "",
     val userType: String = "",
-    val rating: Double = 0.0,
     val website: String = "",
     val name: String = "",
     val address: String = "",
@@ -16,5 +15,8 @@ class Hospital(
     val businessDays: String = "",
     val lat: Double = 0.0,
     val lon: Double = 0.0,
-    val logo: String = ""
+    val logo: String = "",
+    val totalRating: Double = 5.0,
+    val ratingCounter: Int = 1,
+    val finalRating: Double = 5.0
 ) : Parcelable

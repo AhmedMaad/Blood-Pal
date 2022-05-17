@@ -11,6 +11,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.maad.bloodpal.databinding.ActivityHospitalProfileBinding
+import kotlin.math.roundToInt
 
 class HospitalProfileActivity : AppCompatActivity() {
 
@@ -33,7 +34,7 @@ class HospitalProfileActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 binding.progress.visibility = View.INVISIBLE
                 hospital = it.toObject(Hospital::class.java)!!
-                binding.ratingTv.text = hospital.rating.toString()
+                binding.ratingTv.text = "%.2f".format(hospital.finalRating)
                 binding.nameTv.text = hospital.name
                 binding.websiteTv.text = hospital.website
                 binding.addressValueTv.text = hospital.address
@@ -44,7 +45,6 @@ class HospitalProfileActivity : AppCompatActivity() {
                     .with(this)
                     .load(hospital.logo)
                     .into(binding.profileIv)
-                Log.d("trace", "Logo: ${hospital.logo}")
             }
 
         binding.requestEditBtn.setOnClickListener {
@@ -59,6 +59,9 @@ class HospitalProfileActivity : AppCompatActivity() {
             startActivity(Intent(Intent.ACTION_VIEW, hospital.website.toUri()))
         }
 
+        binding.ratingBar.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
+
+        }
 
     }
 

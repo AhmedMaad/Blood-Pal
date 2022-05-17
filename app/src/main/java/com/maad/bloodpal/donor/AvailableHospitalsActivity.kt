@@ -13,16 +13,21 @@ import com.maad.bloodpal.hospital.Hospital
 class AvailableHospitalsActivity : AppCompatActivity() {
 
     private lateinit var db: FirebaseFirestore
+    private lateinit var binding: ActivityAvailableHospitalsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityAvailableHospitalsBinding.inflate(layoutInflater)
+        binding = ActivityAvailableHospitalsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         db = Firebase.firestore
 
-        //val prefs = getSharedPreferences("user_settings", MODE_PRIVATE)
-        //val id = prefs.getString("id", null)
+        //request all hospitals then sort using their location and the location chosen from previous activity
+        //"lat", "lon"
 
+    }
+
+    override fun onResume() {
+        super.onResume()
         val hospitals = arrayListOf<Hospital>()
 
         db
@@ -30,19 +35,12 @@ class AvailableHospitalsActivity : AppCompatActivity() {
             .get()
             .addOnSuccessListener {
                 binding.loadingTv.visibility = View.GONE
-                //loop through documents until you return hospitals only
                 for (hospital in it.documents)
-                    if (hospital.get("userType") == "Hospital"){
+                    if (hospital.get("userType") == "Hospital")
                         hospitals.add(hospital.toObject(Hospital::class.java)!!)
-                        Log.d("trace", "Hospital Added")
-                    }
                 val adapter = AvailableHospitalsAdapter(this, hospitals)
                 binding.availableHospitalsRv.adapter = adapter
             }
-
-        //request all hospitals then sort using their location and the location chosen from previous activity
-        //"lat", "lon"
-
     }
 
 }

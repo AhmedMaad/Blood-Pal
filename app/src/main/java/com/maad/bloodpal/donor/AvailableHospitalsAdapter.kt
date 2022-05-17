@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.maad.bloodpal.R
 import com.maad.bloodpal.hospital.Hospital
+import kotlin.math.roundToInt
 
 class AvailableHospitalsAdapter(
     val activity: AvailableHospitalsActivity,
@@ -27,7 +28,7 @@ class AvailableHospitalsAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HospitalsVH {
         val view =
             activity.layoutInflater.inflate(R.layout.available_hospitals_list_item, parent, false)
-    return HospitalsVH(view)
+        return HospitalsVH(view)
     }
 
     override fun onBindViewHolder(holder: HospitalsVH, position: Int) {
@@ -38,7 +39,7 @@ class AvailableHospitalsAdapter(
             activity.startActivity(i)
         }
 
-        holder.rating.text = hospitals[position].rating.toString()
+        holder.rating.text = "%.2f".format(hospitals[position].finalRating)
         Glide.with(activity).load(hospitals[position].logo).into(holder.profile)
         holder.name.text = hospitals[position].name
         holder.website.text = hospitals[position].website

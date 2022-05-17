@@ -176,6 +176,31 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/days_value_tv" />
 
+                <RatingBar
+                    android:id="@+id/rating_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:numStars="5"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/days_value_tv"
+                    tools:visibility="visible" />
+
+                <Button
+                    android:id="@+id/submit_rating_btn"
+                    style="@style/BtnStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="@id/rating_bar"
+                    app:layout_constraintStart_toStartOf="@id/rating_bar"
+                    app:layout_constraintTop_toBottomOf="@id/rating_bar"
+                    tools:visibility="visible"
+                    android:text="Submit rating"/>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>
