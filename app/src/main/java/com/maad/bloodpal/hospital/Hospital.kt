@@ -18,5 +18,10 @@ class Hospital(
     val logo: String = "",
     val totalRating: Double = 5.0,
     val ratingCounter: Int = 1,
-    val finalRating: Double = 5.0
-) : Parcelable
+    val finalRating: Double = 5.0,
+    val distance: Double = 0.0
+) : Parcelable, Comparable<Hospital> {
+
+    override fun compareTo(other: Hospital) = distance.compareTo(other.distance)
+
+}
