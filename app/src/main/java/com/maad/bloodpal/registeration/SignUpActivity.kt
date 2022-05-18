@@ -47,8 +47,6 @@ class SignUpActivity : AppCompatActivity() {
                 currentYear - yearOfBirth
             }
 
-            //Log.d("trace", "Age: $age")
-
             if (email.isEmpty() || password.isEmpty() || mobile.isEmpty()
                 || idNo.isEmpty() || imageUri == null
             )

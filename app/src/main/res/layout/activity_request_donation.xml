@@ -6,4 +6,100 @@
     android:layout_height="match_parent"
     tools:context=".hospital.RequestDonationActivity">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/container_cv"
+        style="@style/Container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/back_btn"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/back_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/blood_type_tv"
+        style="@style/KeyTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="56dp"
+        android:text="Blood Type:"
+        app:layout_constraintStart_toStartOf="@id/container_cv"
+        app:layout_constraintTop_toTopOf="@id/container_cv" />
+
+    <Spinner
+        android:id="@+id/blood_type_spinner"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/blood_type_tv"
+        app:layout_constraintEnd_toEndOf="@id/container_cv"
+        app:layout_constraintStart_toEndOf="@id/blood_type_tv"
+        app:layout_constraintTop_toTopOf="@id/blood_type_tv" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/submit_request_btn"
+        style="@style/BtnStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit Request"
+        app:layout_constraintBottom_toBottomOf="@id/container_cv"
+        app:layout_constraintEnd_toEndOf="@id/container_cv" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/submit_request_btn"
+        app:layout_constraintEnd_toEndOf="@id/submit_request_btn"
+        app:layout_constraintStart_toStartOf="@id/submit_request_btn"
+        app:layout_constraintTop_toTopOf="@id/submit_request_btn" />
+
+    <!--<TextView
+        android:id="@+id/needed_donors_tv"
+        style="@style/KeyTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Needed Donors:"
+        app:layout_constraintStart_toStartOf="@id/blood_type_tv"
+        app:layout_constraintTop_toBottomOf="@id/blood_type_spinner" />
+
+    <Spinner
+        android:id="@+id/needed_donors_spinner"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/needed_donors_tv"
+        app:layout_constraintEnd_toEndOf="@id/container_cv"
+        app:layout_constraintStart_toEndOf="@id/needed_donors_tv"
+        app:layout_constraintTop_toTopOf="@id/needed_donors_tv" />
+
+    <CheckBox
+        android:id="@+id/allowed_from_home_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Donation allowed from home"
+        app:layout_constraintStart_toStartOf="@id/needed_donors_tv"
+        app:layout_constraintTop_toBottomOf="@id/needed_donors_spinner" />
+
+    <CheckBox
+        android:id="@+id/paid_donation_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Paid Donation"
+        app:layout_constraintStart_toStartOf="@id/needed_donors_tv"
+        app:layout_constraintTop_toBottomOf="@id/allowed_from_home_cb" />
+-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>

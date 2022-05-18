@@ -23,10 +23,6 @@ class AvailableHospitalsActivity : AppCompatActivity() {
         binding = ActivityAvailableHospitalsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         db = Firebase.firestore
-
-        //request all hospitals then sort using their location and the location chosen from previous activity
-        //"lat", "lon"
-
     }
 
     override fun onResume() {
