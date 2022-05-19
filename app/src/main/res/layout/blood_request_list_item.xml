@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
+    android:id="@+id/parent"
     app:cardCornerRadius="24dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -78,7 +79,7 @@
             tools:text="A+" />
 
         <TextView
-            android:id="@+id/login_tv"
+            android:id="@+id/accept_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -103,7 +104,7 @@
             app:layout_constraintTop_toBottomOf="@id/blood_type_value_tv" />
 
         <TextView
-            android:id="@+id/signup_tv"
+            android:id="@+id/deny_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"

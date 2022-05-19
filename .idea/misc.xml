@@ -16,6 +16,7 @@
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_fill_patient_profile.xml" value="0.1921875" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_forgot_password.xml" value="0.1921875" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_health_status.xml" value="0.25" />
+        <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_hospital_blood_requests.xml" value="0.15775972637879435" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_hospital_details.xml" value="0.1921875" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_hospital_home.xml" value="0.17" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_hospital_profile.xml" value="0.2" />
@@ -31,7 +32,7 @@
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_user_type.xml" value="0.1921875" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_your.xml" value="0.1921875" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/available_hospitals_list_item.xml" value="0.25" />
-        <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/blood_request_list_item.xml" value="0.25" />
+        <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/blood_request_list_item.xml" value="0.15775972637879435" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/hospital_list_item.xml" value="0.1921875" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/hospital_request_list_item.xml" value="0.15775972637879435" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/hospital_service_list_item.xml" value="0.25" />

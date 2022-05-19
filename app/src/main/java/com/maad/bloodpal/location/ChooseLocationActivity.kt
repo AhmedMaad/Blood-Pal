@@ -10,7 +10,6 @@ import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
-import androidx.core.view.isVisible
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
@@ -23,7 +22,7 @@ import com.google.firebase.ktx.Firebase
 import com.maad.bloodpal.R
 import com.maad.bloodpal.databinding.ActivityChooseLocationBinding
 import com.maad.bloodpal.donor.AvailableHospitalsActivity
-import com.maad.bloodpal.donor.HospitalRequestsActivity
+import com.maad.bloodpal.donor.HospitalBloodRequestsActivity
 import com.maad.bloodpal.patient.PatientHomeActivity
 import com.maad.bloodpal.patient.PatientRequest
 
@@ -102,7 +101,7 @@ class ChooseLocationActivity : AppCompatActivity() {
                 else -> {
                     val activity = when (intent.getStringExtra("requestType")) {
                         "giveDonation" -> AvailableHospitalsActivity::class.java
-                        else -> HospitalRequestsActivity::class.java //else "donationWanted"
+                        else -> HospitalBloodRequestsActivity::class.java //else "donationWanted"
                     }
                     val i = Intent(this, activity)
                     i.putExtra("lat", lat)
