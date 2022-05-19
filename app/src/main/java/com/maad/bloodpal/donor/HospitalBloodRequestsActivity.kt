@@ -23,6 +23,7 @@ class HospitalBloodRequestsActivity : AppCompatActivity(), BloodRequestsAdapter.
     private lateinit var binding: ActivityHospitalBloodRequestsBinding
     private lateinit var adapter: BloodRequestsAdapter
     private lateinit var uId: String
+    private var managedBloodRequests = arrayListOf<DonorRequestStatus>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,49 +34,100 @@ class HospitalBloodRequestsActivity : AppCompatActivity(), BloodRequestsAdapter.
         val prefs = getSharedPreferences("user_settings", MODE_PRIVATE)
         uId = prefs.getString("id", null)!!
 
+        //l kol blood requests mwgood ha3addy 3la el status el mwgood w 23ml check in case
+        //en el status id == user id
+
+        //0- return all status from firebase
+        //1- loop through status and check if "status user id" == "fetched user id from prefs"
+        //2- if true, then save "status blood request id" in an array
+        //3- fetch all blood requests from firebase
+        //4- check if "blood request id" == "status blood request id"
+        //5- then
+
+        db
+            .collection("donorRequestsStatus")
+            .get()
+            .addOnSuccessListener {
+                val statusRequests = it.toObjects(DonorRequestStatus::class.java)
+                for (status in statusRequests)
+                    if (status.userId == uId) {
+                        managedBloodRequests.add(status)
+                        Log.d("trace", "Repeated request")
+                    }
+                fetchAllBloodRequests()
+            }
+
+
+        /* db
+             .collection("bloodRequests")
+             .get()
+             .addOnSuccessListener {
+                 val bloodRequests = it.toObjects(BloodRequest::class.java)
+                 totalBloodRequests = bloodRequests.size
+                 for (request in bloodRequests) {
+                     //Log.d("trace", "Looping through blood requests")
+                     var flag = false
+                     db
+                         .collection("donorRequestsStatus")
+                         .get()
+                         .addOnSuccessListener {
+                             val requestStatus = it.toObjects(DonorRequestStatus::class.java)
+                             for (status in requestStatus) {
+                                 if (status.userId == uId) {
+                                     //only get associated hospital if request id is not the same in firebase
+                                     flag  = true
+                                 }
+                             }
+                             //check flag
+                             if (!flag){
+                                 Log.d("trace", "Getting hospital")
+                                 getAssociatedHospital(request, request.hospitalId)
+                             }
+                             else{
+                                 Log.d("trace", "Classhhhhh.....")
+                             }
+
+                         }
+
+                 }
+             }*/
+
+    }
+
+    private fun fetchAllBloodRequests() {
         db
             .collection("bloodRequests")
             .get()
             .addOnSuccessListener {
-                val bloodRequests = it.toObjects(BloodRequest::class.java)
-                totalBloodRequests = bloodRequests.size
-                for (request in bloodRequests) {
-                    //Log.d("trace", "Looping through blood requests")
+                val allBloodRequests = it.toObjects(BloodRequest::class.java)
+                totalBloodRequests = allBloodRequests.size - managedBloodRequests.size
+                for (bloodRequest in allBloodRequests){
                     var flag = false
-                    db
-                        .collection("donorRequestsStatus")
-                        .get()
-                        .addOnSuccessListener {
-                            val requestStatus = it.toObjects(DonorRequestStatus::class.java)
-                            for (status in requestStatus) {
-                                if (status.userId == uId) {
-                                    //only get associated hospital if request id is not the same in firebase
-                                    flag  = true
-                                }
-                            }
-                            //check flag
-                            if (!flag){
-                                Log.d("trace", "Getting hospital")
-                                getAssociatedHospital(request, request.hospitalId)
-                            }
-                            else{
-                                Log.d("trace", "Classhhhhh.....")
-                            }
-
+                    for (managedRequest in managedBloodRequests){
+                        if (bloodRequest.id == managedRequest.bloodRequest.id){
+                            Log.d("trace", "Final Clash")
+                            flag  = true
                         }
+                    }
+                    if (!flag){
+                        Log.d("trace" , "Getting Associated Hospital")
+                        getAssociatedHospital(bloodRequest)
+                    }
 
                 }
+
+
             }
 
     }
 
-    private fun getAssociatedHospital(request: BloodRequest, hospitalId: String) {
+    private fun getAssociatedHospital(request: BloodRequest) {
         db
             .collection("users")
-            .document(hospitalId)
+            .document(request.hospitalId)
             .get()
             .addOnSuccessListener {
-                //Log.d("trace", "Adding final data")
+                Log.d("trace", "Adding final data")
                 val hospital = it.toObject(Hospital::class.java)!!
                 bloodAndHospitals.add(BloodAndHospital(request, hospital))
                 ++counter
