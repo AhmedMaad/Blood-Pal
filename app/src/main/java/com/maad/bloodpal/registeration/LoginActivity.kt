@@ -19,10 +19,11 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var db: FirebaseFirestore
     var userType = ""
+    private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityLoginBinding.inflate(layoutInflater)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         db = Firebase.firestore
 
@@ -38,15 +39,12 @@ class LoginActivity : AppCompatActivity() {
             else {
                 binding.loginBtn.visibility = View.INVISIBLE
                 binding.progress.visibility = View.VISIBLE
-                val auth: FirebaseAuth = Firebase.auth
+                val auth = Firebase.auth
                 auth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this) { task ->
-                        if (task.isSuccessful) {
-                            binding.loginBtn.visibility = View.VISIBLE
-                            binding.progress.visibility = View.INVISIBLE
+                        if (task.isSuccessful)
                             getData(task.result.user!!.uid)
-
-                        } else {
+                        else {
                             binding.loginBtn.visibility = View.VISIBLE
                             binding.progress.visibility = View.INVISIBLE
                             Toast.makeText(
@@ -75,6 +73,8 @@ class LoginActivity : AppCompatActivity() {
             .document(id)
             .get()
             .addOnSuccessListener {
+                binding.loginBtn.visibility = View.VISIBLE
+                binding.progress.visibility = View.INVISIBLE
                 userType = it.get("userType") as String
 
                 val editor = getSharedPreferences("user_settings", MODE_PRIVATE).edit()

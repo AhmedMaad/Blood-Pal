@@ -66,12 +66,13 @@
 
                 <TextView
                     android:id="@+id/website_tv"
-                    android:layout_width="300dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
                     android:gravity="center"
                     android:textColor="@color/blue"
-                    app:layout_constraintEnd_toEndOf="@id/name_tv"
-                    app:layout_constraintStart_toStartOf="@id/name_tv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/name_tv"
                     tools:text="https://www.google.com/" />
 
@@ -194,12 +195,12 @@
                     style="@style/BtnStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Submit rating"
                     android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="@id/rating_bar"
                     app:layout_constraintStart_toStartOf="@id/rating_bar"
                     app:layout_constraintTop_toBottomOf="@id/rating_bar"
-                    tools:visibility="visible"
-                    android:text="Submit rating"/>
+                    tools:visibility="visible" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

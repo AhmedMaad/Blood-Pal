@@ -12,20 +12,20 @@ class DonorHomeActivity : AppCompatActivity() {
         val binding = ActivityDonorHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.makeDonationBtn.setOnClickListener { openChooseLocation("giveDonation") }
+        binding.makeDonationBtn.setOnClickListener {
+            val i = Intent(this, ChooseLocationActivity::class.java)
+            //i.putExtra("requestType", "giveDonation")
+            startActivity(i)
+        }
 
-        binding.donationWantedBtn.setOnClickListener { openChooseLocation("donationWanted") }
+        binding.donationWantedBtn.setOnClickListener {
+            startActivity(Intent(this, HospitalBloodRequestsActivity::class.java))
+        }
 
         binding.profileIv.setOnClickListener {
             startActivity(Intent(this, DonorProfileActivity::class.java))
         }
 
-    }
-
-    private fun openChooseLocation(requestType: String) {
-        val i = Intent(this, ChooseLocationActivity::class.java)
-        i.putExtra("requestType", requestType)
-        startActivity(i)
     }
 
 }

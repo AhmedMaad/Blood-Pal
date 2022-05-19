@@ -93,17 +93,19 @@ class ChooseLocationActivity : AppCompatActivity() {
                                 }
                         }
 
-                    //hena nshoof lw hwa patient fa nb3t el location directly to server
-                    //then navigate to patient home page
-                    //send it to location then send everything to server including user id, type, health status
-                    //id, location, phone number, ...etc.
                 }
-                else -> {
+                /*else -> {
                     val activity = when (intent.getStringExtra("requestType")) {
                         "giveDonation" -> AvailableHospitalsActivity::class.java
                         else -> HospitalBloodRequestsActivity::class.java //else "donationWanted"
                     }
                     val i = Intent(this, activity)
+                    i.putExtra("lat", lat)
+                    i.putExtra("lon", lon)
+                    startActivity(i)
+                }*/
+                else -> {
+                    val i = Intent(this, AvailableHospitalsActivity::class.java)
                     i.putExtra("lat", lat)
                     i.putExtra("lon", lon)
                     startActivity(i)

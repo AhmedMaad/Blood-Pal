@@ -62,12 +62,7 @@ class DonorHospitalProfileActivity : AppCompatActivity() {
             startActivity(mapIntent)
         }
 
-
-
         binding.submitRatingBtn.setOnClickListener {
-            //update current rating for the specific hospital, and show the new updated rating
-            //in the current activity, and in the recycler view "override on resume"
-
             if (binding.ratingBar.rating == 0.0f)
                 Toast.makeText(this, "Rating cannot be ZERO", Toast.LENGTH_SHORT).show()
             else {

@@ -25,11 +25,19 @@ class HospitalProfileActivity : AppCompatActivity() {
         db = Firebase.firestore
 
         val prefs = getSharedPreferences("user_settings", MODE_PRIVATE)
-        val id = prefs.getString("id", null)
-
+        val userType = prefs.getString("userType", null)
+        var id = ""
+        when (userType) {
+            "Hospital" -> id = prefs.getString("id", null)!!
+            "Donor" -> {
+                //In case the donor wants to see the hospital profile
+                id = intent.getStringExtra("hospitalId")!!
+                binding.requestEditBtn.visibility = View.GONE
+            }
+        }
         db
             .collection("users")
-            .document(id!!)
+            .document(id)
             .get()
             .addOnSuccessListener {
                 binding.progress.visibility = View.INVISIBLE
@@ -59,9 +67,11 @@ class HospitalProfileActivity : AppCompatActivity() {
             startActivity(Intent(Intent.ACTION_VIEW, hospital.website.toUri()))
         }
 
+/*
         binding.ratingBar.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
 
         }
+*/
 
     }
 
