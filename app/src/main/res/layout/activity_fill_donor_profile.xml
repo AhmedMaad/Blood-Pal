@@ -6,4 +6,133 @@
     android:layout_height="match_parent"
     tools:context=".hospital.FillDonorProfileActivity">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/container_cv"
+        style="@style/Container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="80dp" />
+
+    <ImageView
+        android:id="@+id/back_btn"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/back_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/email_key_tv"
+        style="@style/KeyTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Donor Email:"
+        app:layout_constraintBottom_toBottomOf="@id/email_spinner"
+        app:layout_constraintStart_toStartOf="@id/container_cv"
+        app:layout_constraintTop_toTopOf="@id/container_cv" />
+
+    <Spinner
+        android:id="@+id/email_spinner"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@id/container_cv"
+        app:layout_constraintStart_toEndOf="@id/time_key_tv"
+        app:layout_constraintTop_toTopOf="@id/container_cv" />
+
+    <TextView
+        android:id="@+id/time_key_tv"
+        style="@style/KeyTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Donation Time:"
+        app:layout_constraintBottom_toBottomOf="@id/time_value"
+        app:layout_constraintStart_toStartOf="@id/email_key_tv"
+        app:layout_constraintTop_toTopOf="@id/time_value" />
+
+    <Button
+        android:id="@+id/time_value"
+        style="@style/BtnStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Choose Date"
+        app:layout_constraintEnd_toEndOf="@id/container_cv"
+        app:layout_constraintStart_toEndOf="@id/time_key_tv"
+        app:layout_constraintTop_toBottomOf="@id/email_spinner" />
+
+    <TextView
+        android:id="@+id/blood_type_key_tv"
+        style="@style/KeyTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Blood Type:"
+        app:layout_constraintBottom_toBottomOf="@id/blood_type_spinner"
+        app:layout_constraintStart_toStartOf="@id/container_cv"
+        app:layout_constraintTop_toTopOf="@id/blood_type_spinner" />
+
+    <Spinner
+        android:id="@+id/blood_type_spinner"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@id/time_value"
+        app:layout_constraintStart_toEndOf="@id/blood_type_key_tv"
+        app:layout_constraintTop_toBottomOf="@id/time_value" />
+
+    <TextView
+        android:id="@+id/hemoglobin_key_tv"
+        style="@style/KeyTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hemoglobin:"
+        app:layout_constraintBottom_toBottomOf="@id/hemoglobin_et"
+        app:layout_constraintStart_toStartOf="@id/blood_type_key_tv" />
+
+    <EditText
+        android:id="@+id/hemoglobin_et"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@id/hemoglobin_key_tv"
+        app:layout_constraintTop_toBottomOf="@id/blood_type_spinner" />
+
+    <CheckBox
+        android:id="@+id/pressure_cb"
+        style="@style/KeyTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Pressure &amp; Diabetes"
+        app:layout_constraintStart_toStartOf="@id/hemoglobin_key_tv"
+        app:layout_constraintTop_toBottomOf="@id/hemoglobin_et" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/save_profile_btn"
+        style="@style/BtnStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save Profile"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/container_cv"
+        app:layout_constraintEnd_toEndOf="@id/container_cv" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/save_profile_btn"
+        app:layout_constraintEnd_toEndOf="@id/save_profile_btn"
+        app:layout_constraintStart_toStartOf="@id/save_profile_btn"
+        app:layout_constraintTop_toTopOf="@id/save_profile_btn" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

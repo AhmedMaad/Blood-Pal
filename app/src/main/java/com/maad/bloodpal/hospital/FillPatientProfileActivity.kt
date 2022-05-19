@@ -9,5 +9,9 @@ class FillPatientProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityFillPatientProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //Retrieve "patients" email from firebase and show them in a spinner
+
+
     }
 }

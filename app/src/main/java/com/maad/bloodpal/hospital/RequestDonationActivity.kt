@@ -44,7 +44,7 @@ class RequestDonationActivity : AppCompatActivity() {
                 .add(request)
                 .addOnSuccessListener {
                     val map = HashMap<String, String>()
-                    map.put("id", it.id)
+                    map["id"] = it.id
                     it.update(map as Map<String, String>).addOnSuccessListener {
                         binding.progress.visibility = View.INVISIBLE
                         binding.submitRequestBtn.visibility = View.VISIBLE
