@@ -11,7 +11,7 @@ import com.maad.bloodpal.databinding.ActivityHospitalBloodRequestsBinding
 import com.maad.bloodpal.hospital.BloodRequest
 import com.maad.bloodpal.hospital.Hospital
 
-class HospitalBloodRequestsActivity : AppCompatActivity() {
+class HospitalBloodRequestsActivity : AppCompatActivity(), BloodRequestsAdapter.ItemClickListener {
 
     private lateinit var db: FirebaseFirestore
     private var bloodAndHospitals = arrayListOf<BloodAndHospital>()
@@ -25,9 +25,6 @@ class HospitalBloodRequestsActivity : AppCompatActivity() {
         setContentView(binding.root)
         db = Firebase.firestore
 
-        //hide "loading.." after data is fetched
-        //make the recycler view listener in the activity "Accept / Deny"
-
         db
             .collection("bloodRequests")
             .get()
@@ -35,7 +32,7 @@ class HospitalBloodRequestsActivity : AppCompatActivity() {
                 val bloodRequests = it.toObjects(BloodRequest::class.java)
                 totalBloodRequests = bloodRequests.size
                 for (request in bloodRequests) {
-                    Log.d("trace", "Loop through blood requests")
+                    //Log.d("trace", "Loop through blood requests")
                     getAssociatedHospital(request, request.hospitalId)
                 }
             }
@@ -48,17 +45,32 @@ class HospitalBloodRequestsActivity : AppCompatActivity() {
             .document(hospitalId)
             .get()
             .addOnSuccessListener {
-                Log.d("trace", "Adding final data")
+                //Log.d("trace", "Adding final data")
                 val hospital = it.toObject(Hospital::class.java)!!
                 bloodAndHospitals.add(BloodAndHospital(request, hospital))
                 ++counter
                 if (counter == totalBloodRequests){
-                    Log.d("trace", "All requests received successfully")
+                    //Log.d("trace", "All requests received successfully")
                     binding.loadingTv.visibility = View.GONE
-                    val adapter = BloodRequestsAdapter(this, bloodAndHospitals)
+                    val adapter = BloodRequestsAdapter(this, bloodAndHospitals, this)
                     binding.bloodRequestsRv.adapter = adapter
+                    //sort places according to distance
+                    //make the recycler view listener in the activity "Accept / Deny"
+
                 }
             }
+    }
+
+    override fun onItemClick(position: Int) {
+        Log.d("trace", "Position from Item: $position")
+    }
+
+    override fun onAcceptBtnClick(position: Int) {
+        Log.d("trace", "Position from Accept: $position")
+    }
+
+    override fun onDenyBtnClick(position: Int) {
+        Log.d("trace", "Position from Deny: $position")
     }
 
 }
