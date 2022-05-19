@@ -49,9 +49,6 @@
             android:name=".patient.PatientProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".donor.HospitalDetailsActivity"
-            android:exported="false" />
-        <activity
             android:name=".donor.HospitalBloodRequestsActivity"
             android:exported="false" />
         <activity
