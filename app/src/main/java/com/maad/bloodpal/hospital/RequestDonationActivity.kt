@@ -2,29 +2,58 @@ package com.maad.bloodpal.hospital
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Toast
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.maad.bloodpal.databinding.ActivityRequestDonationBinding
 
 class RequestDonationActivity : AppCompatActivity() {
+
+    private lateinit var db: FirebaseFirestore
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityRequestDonationBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        db = Firebase.firestore
 
-        //send hospital id with the request
-
-        //increase "not specified" option in number of donors
-
-        //val numberOfDonors = arrayOf("1", "2", "3", "4", "5", "Not Specified")
         val bloodTypes = arrayOf("A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-")
-
-        /*val donorsAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, numberOfDonors)
-        donorsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding.neededDonorsSpinner.adapter = donorsAdapter*/
 
         val bloodAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, bloodTypes)
         bloodAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.bloodTypeSpinner.adapter = bloodAdapter
+
+        binding.backBtn.setOnClickListener { finish() }
+
+        binding.submitRequestBtn.setOnClickListener {
+            binding.progress.visibility = View.VISIBLE
+            binding.submitRequestBtn.visibility = View.INVISIBLE
+
+            val prefs = getSharedPreferences("user_settings", MODE_PRIVATE)
+            val hospitalId = prefs.getString("id", null)!!
+            val request = BloodRequest(
+                hospitalId = hospitalId,
+                bloodType = bloodTypes[binding.bloodTypeSpinner.selectedItemPosition]
+            )
+
+            db
+                .collection("bloodRequests")
+                .add(request)
+                .addOnSuccessListener {
+                    val map = HashMap<String, String>()
+                    map.put("id", it.id)
+                    it.update(map as Map<String, String>).addOnSuccessListener {
+                        binding.progress.visibility = View.INVISIBLE
+                        binding.submitRequestBtn.visibility = View.VISIBLE
+                        Toast.makeText(this, "Request Sent to all users", Toast.LENGTH_LONG).show()
+                        finish()
+                    }
+                }
+
+        }
 
 
     }

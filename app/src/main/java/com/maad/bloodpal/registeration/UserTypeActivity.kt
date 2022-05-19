@@ -104,7 +104,7 @@ class UserTypeActivity : AppCompatActivity() {
             .document(userId)
             .set(registeredUser)
             .addOnSuccessListener {
-                Log.d("trace", "User Added Successfully")
+                //Log.d("trace", "User Added Successfully")
                 binding.progress.visibility = View.INVISIBLE
                 binding.donorBtn.isEnabled = true
                 binding.patientBtn.isEnabled = true
@@ -133,7 +133,7 @@ class UserTypeActivity : AppCompatActivity() {
     }
 
     private fun clickButton(userType: String) {
-        Log.d("trace", "Button Clicked")
+        //Log.d("trace", "Button Clicked")
         binding.progress.visibility = View.VISIBLE
         binding.donorBtn.isEnabled = false
         binding.patientBtn.isEnabled = false
