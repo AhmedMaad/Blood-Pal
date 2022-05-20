@@ -10,9 +10,7 @@
         android:id="@+id/container_cv"
         style="@style/Container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="121dp" />
+        android:layout_height="match_parent" />
 
     <ImageView
         android:id="@+id/back_btn"
@@ -67,22 +65,22 @@
         app:layout_constraintTop_toBottomOf="@id/email_spinner" />
 
     <TextView
-        android:id="@+id/hemoglobin_key_tv"
+        android:id="@+id/blood_bags_key_tv"
         style="@style/KeyTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Blood Bags:"
-        app:layout_constraintBottom_toBottomOf="@id/hemoglobin_et"
+        app:layout_constraintBottom_toBottomOf="@id/blood_bags_et"
         app:layout_constraintStart_toStartOf="@id/blood_type_key_tv" />
 
     <EditText
-        android:id="@+id/hemoglobin_et"
+        android:id="@+id/blood_bags_et"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:inputType="number"
-        app:layout_constraintStart_toEndOf="@id/hemoglobin_key_tv"
+        app:layout_constraintStart_toEndOf="@id/blood_bags_key_tv"
         app:layout_constraintTop_toBottomOf="@id/blood_type_spinner" />
 
     <TextView
@@ -93,17 +91,36 @@
         android:layout_marginTop="32dp"
         android:text="Diagnosis:"
         app:layout_constraintStart_toStartOf="@id/blood_type_key_tv"
-        app:layout_constraintTop_toBottomOf="@id/hemoglobin_et" />
+        app:layout_constraintTop_toBottomOf="@id/blood_bags_et" />
 
     <EditText
         android:id="@+id/diagnosis_et"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:maxLength="6"
-        android:minLines="3"
+        android:maxLines="6"
+        android:minLines="4"
         app:layout_constraintEnd_toEndOf="@id/container_cv"
         app:layout_constraintStart_toStartOf="@id/diagnosis_tv"
         app:layout_constraintTop_toBottomOf="@id/diagnosis_tv" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/save_profile_btn"
+        style="@style/BtnStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save Profile"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/container_cv"
+        app:layout_constraintEnd_toEndOf="@id/container_cv" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/save_profile_btn"
+        app:layout_constraintEnd_toEndOf="@id/save_profile_btn"
+        app:layout_constraintStart_toStartOf="@id/save_profile_btn"
+        app:layout_constraintTop_toTopOf="@id/save_profile_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -69,15 +69,23 @@ class FillDonorProfileActivity : AppCompatActivity(), DatePickerDialog.OnDateSet
             val email = emails[binding.emailSpinner.selectedItemPosition]
             val date = binding.timeValue.text.toString()
             val bloodType = bloodTypes[binding.bloodTypeSpinner.selectedItemPosition]
-            val hemoglobin = binding.hemoglobinEt.text.toString().toDouble()
-            val hasPressure = binding.pressureCb.isChecked
+            val hemoglobin = binding.hemoglobinEt.text.toString()
+            val hasPressure = binding.pressureCb.isChecked.toString()
             val donorId = ids[binding.emailSpinner.selectedItemPosition]
-            Log.d("trace", "Donor ID: $donorId")
-            val donorProfile =
-                Donor(donorId, hospitalId, email, date, bloodType, hemoglobin, hasPressure)
-            db.collection("donorHospital")
+            //Log.d("trace", "Donor ID: $donorId")
+            //val donorProfile = Donor(hospitalId, date, bloodType, hemoglobin, hasPressure)
+
+            val map = HashMap<String, String>()
+            map["hospitalId"] = hospitalId
+            map["date"] = date
+            map["bloodType"] = bloodType
+            map["hemoglobin"] = hemoglobin
+            map["hasPressure"] = hasPressure
+
+
+            db.collection("users")
                 .document(donorId)
-                .set(donorProfile)
+                .update(map as Map<String, String>)
                 .addOnSuccessListener {
                     Toast.makeText(this, "Profile Added", Toast.LENGTH_SHORT).show()
                     finish()
