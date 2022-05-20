@@ -44,6 +44,7 @@
                         android:id="@+id/profile_iv"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
                         tools:src="@tools:sample/avatars" />
 
                 </androidx.cardview.widget.CardView>
@@ -204,8 +205,10 @@
                     android:id="@+id/pressure_value_tv"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
                     android:textColor="@color/black"
                     android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@id/id_value_tv"
                     app:layout_constraintTop_toBottomOf="@id/pressure_key_tv"
