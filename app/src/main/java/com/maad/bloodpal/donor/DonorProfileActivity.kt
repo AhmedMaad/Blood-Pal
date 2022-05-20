@@ -9,5 +9,10 @@ class DonorProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityDonorProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.backBtn.setOnClickListener { finish() }
+
+        //hide progress bar after showing data from server
+
     }
 }
