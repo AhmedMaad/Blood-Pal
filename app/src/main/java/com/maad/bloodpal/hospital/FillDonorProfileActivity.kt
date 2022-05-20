@@ -95,7 +95,7 @@ class FillDonorProfileActivity : AppCompatActivity(), DatePickerDialog.OnDateSet
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-        val date = "$dayOfMonth-${(month + 1)}- $year"
+        val date = "$dayOfMonth-${(month + 1)}-$year"
         binding.timeValue.text = date
     }
 

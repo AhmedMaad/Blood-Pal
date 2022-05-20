@@ -2,4 +2,4 @@ package com.maad.bloodpal.hospital
 
 import com.maad.bloodpal.User
 
-class AcceptedDonation(val user: User, val bloodType: String)
+class Donation(val user: User = User(), val bloodType: String = "")

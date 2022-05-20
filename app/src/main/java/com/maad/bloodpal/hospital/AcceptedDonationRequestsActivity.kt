@@ -2,11 +2,9 @@ package com.maad.bloodpal.hospital
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import com.maad.bloodpal.User
 import com.maad.bloodpal.databinding.ActivityAcceptedDonationRequestsBinding
@@ -42,7 +40,7 @@ class AcceptedDonationRequestsActivity : AppCompatActivity() {
 
     private fun getAcceptedRequests() {
         var counter = 0
-        val usersList = arrayListOf<AcceptedDonation>()
+        val usersList = arrayListOf<Donation>()
         for (request in acceptedRequests)
             db.collection("users")
                 .document(request.userId)
@@ -50,7 +48,7 @@ class AcceptedDonationRequestsActivity : AppCompatActivity() {
                 .addOnSuccessListener {
                     ++counter
                     val user = it.toObject(User::class.java)!!
-                    usersList.add(AcceptedDonation(user, request.bloodRequest.bloodType))
+                    usersList.add(Donation(user, request.bloodRequest.bloodType))
                     if (counter == acceptedRequests.size) {
                         binding.loadingTv.visibility = View.GONE
                         val adapter = AcceptedDonationAdapter(this, usersList)

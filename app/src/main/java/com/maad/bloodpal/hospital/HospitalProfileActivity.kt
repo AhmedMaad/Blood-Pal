@@ -67,12 +67,6 @@ class HospitalProfileActivity : AppCompatActivity() {
             startActivity(Intent(Intent.ACTION_VIEW, hospital.website.toUri()))
         }
 
-/*
-        binding.ratingBar.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
-
-        }
-*/
-
     }
 
 }

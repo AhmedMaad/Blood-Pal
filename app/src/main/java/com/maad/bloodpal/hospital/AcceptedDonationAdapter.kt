@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.maad.bloodpal.R
 
-class AcceptedDonationAdapter(val activity: Activity, val requests: ArrayList<AcceptedDonation>) :
+class AcceptedDonationAdapter(val activity: Activity, val requests: ArrayList<Donation>) :
     RecyclerView.Adapter<AcceptedDonationAdapter.VH>() {
 
     class VH(view: View) : RecyclerView.ViewHolder(view) {
@@ -22,7 +22,7 @@ class AcceptedDonationAdapter(val activity: Activity, val requests: ArrayList<Ac
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         VH(activity.layoutInflater.inflate(R.layout.accepted_donation_list_item, parent, false))
 
-    override fun onBindViewHolder(holder: AcceptedDonationAdapter.VH, position: Int) {
+    override fun onBindViewHolder(holder: VH, position: Int) {
         Glide.with(activity).load(requests[position].user.picture).into(holder.profilePic)
         holder.emailTV.text = requests[position].user.email
         holder.phoneTV.text = requests[position].user.mobile
