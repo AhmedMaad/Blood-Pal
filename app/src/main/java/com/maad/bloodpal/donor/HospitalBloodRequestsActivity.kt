@@ -116,7 +116,6 @@ class HospitalBloodRequestsActivity : AppCompatActivity(), BloodRequestsAdapter.
 
                 }
 
-
             }
 
     }
