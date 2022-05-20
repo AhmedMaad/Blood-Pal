@@ -9,5 +9,10 @@ class PatientProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityPatientProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.backBtn.setOnClickListener { finish() }
+
+        //hide progress bar after showing data from server
+
     }
 }
