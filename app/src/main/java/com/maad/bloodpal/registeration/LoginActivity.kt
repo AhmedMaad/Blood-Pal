@@ -30,10 +30,10 @@ class LoginActivity : AppCompatActivity() {
         binding.backBtn.setOnClickListener { finish() }
 
         binding.loginBtn.setOnClickListener {
-            //val email = binding.emailEt.text.toString()
-            //val password = binding.passwordEt.text.toString()
-            val email = "p2@gmail.com"
-            val password = "123456"
+            val email = binding.emailEt.text.toString()
+            val password = binding.passwordEt.text.toString()
+            //val email = "p2@gmail.com"
+            //val password = "123456"
             if (email.isEmpty() || password.isEmpty())
                 Toast.makeText(this, "Important Fields are missing", Toast.LENGTH_SHORT).show()
             else {
