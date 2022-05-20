@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -22,6 +24,7 @@ class PatientHomeActivity : AppCompatActivity() {
     private lateinit var db: FirebaseFirestore
     private val acceptedRequests = arrayListOf<PatientRequestStatus>()
     private lateinit var binding: ActivityPatientHomeBinding
+    private lateinit var snackBar: Snackbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +45,12 @@ class PatientHomeActivity : AppCompatActivity() {
         }
 
         binding.notificationIv.setOnClickListener {
-            //show in list view with pink background
+            snackBar = Snackbar.make(
+                binding.root,
+                "Please Wait...",
+                BaseTransientBottomBar.LENGTH_INDEFINITE
+            )
+            snackBar.show()
             db.collection("patientRequestsStatus").get().addOnSuccessListener {
                 val allRequests = it.toObjects(PatientRequestStatus::class.java)
                 //Log.d("trace", "All requests size: ${allRequests.size}")
@@ -76,10 +84,9 @@ class PatientHomeActivity : AppCompatActivity() {
                     val hospital = it.toObject(Hospital::class.java)!!
                     hospitalsList.add(Hospital(name = hospital.name, id = hospital.id))
                     if (counter == acceptedRequests.size) {
-                        //Log.d("trace", "Counter $counter")
-                        //binding.loadingTv.visibility = View.GONE
-                        //val adapter = AcceptedDonationAdapter(this, usersList)
-                        //binding.acceptedDonationsRv.adapter = adapter
+                        snackBar.dismiss()
+                        //show in list view with pink background as a popup menu
+                        //then navigate to hospital profile on click
                     }
                 }
     }
