@@ -1,23 +1,21 @@
 package com.maad.bloodpal.patient
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
+import android.view.Menu
+import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.maad.bloodpal.User
-import com.maad.bloodpal.databinding.ActivityAcceptedDonationRequestsBinding
 import com.maad.bloodpal.databinding.ActivityPatientHomeBinding
-import com.maad.bloodpal.donor.DonorRequestStatus
-import com.maad.bloodpal.hospital.AcceptedDonationAdapter
-import com.maad.bloodpal.hospital.Donation
 import com.maad.bloodpal.hospital.Hospital
+import com.maad.bloodpal.hospital.HospitalProfileActivity
+
 
 class PatientHomeActivity : AppCompatActivity() {
 
@@ -45,6 +43,7 @@ class PatientHomeActivity : AppCompatActivity() {
         }
 
         binding.notificationIv.setOnClickListener {
+            acceptedRequests.clear()
             snackBar = Snackbar.make(
                 binding.root,
                 "Please Wait...",
@@ -74,7 +73,8 @@ class PatientHomeActivity : AppCompatActivity() {
 
     private fun getAcceptedRequests() {
         var counter = 0
-        val hospitalsList = arrayListOf<Hospital>()
+        val names = arrayListOf<String>()
+        val ids = arrayListOf<String>()
         for (request in acceptedRequests)
             db.collection("users")
                 .document(request.hospitalId)
@@ -82,13 +82,28 @@ class PatientHomeActivity : AppCompatActivity() {
                 .addOnSuccessListener {
                     ++counter
                     val hospital = it.toObject(Hospital::class.java)!!
-                    hospitalsList.add(Hospital(name = hospital.name, id = hospital.id))
+                    names.add("\"${hospital.name}\" accepted your request")
+                    ids.add(hospital.id)
                     if (counter == acceptedRequests.size) {
                         snackBar.dismiss()
-                        //show in list view with pink background as a popup menu
-                        //then navigate to hospital profile on click
+                        getPopup(names, ids)
                     }
                 }
+    }
+
+    private fun getPopup(names: ArrayList<String>, ids: ArrayList<String>) {
+        val popupMenu = PopupMenu(this, binding.notificationIv)
+        for (i in 0 until names.size) {
+            popupMenu.menu.add(i, Menu.FIRST, i, names[i])
+        }
+        popupMenu.setOnMenuItemClickListener { item ->
+            //Log.d("trace", "ID: ${ids[item.order]}")
+            val i = Intent(this, HospitalProfileActivity::class.java)
+            i.putExtra("hospitalId", ids[item.order])
+            startActivity(i)
+            false
+        }
+        popupMenu.show()
     }
 
 }

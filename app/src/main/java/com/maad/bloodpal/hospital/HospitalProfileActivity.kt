@@ -29,8 +29,7 @@ class HospitalProfileActivity : AppCompatActivity() {
         var id = ""
         when (userType) {
             "Hospital" -> id = prefs.getString("id", null)!!
-            "Donor" -> {
-                //In case the donor wants to see the hospital profile
+            "Donor", "Patient" -> {
                 id = intent.getStringExtra("hospitalId")!!
                 binding.requestEditBtn.visibility = View.GONE
             }
