@@ -44,6 +44,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/email_container"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -59,7 +60,7 @@
             android:id="@+id/email_et"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/pink"
+            android:background="@drawable/input_field"
             android:gravity="center"
             android:inputType="textEmailAddress"
             android:textSize="18sp" />
@@ -68,6 +69,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/password_container"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -83,7 +85,7 @@
             android:id="@+id/password_et"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/pink"
+            android:background="@drawable/input_field"
             android:gravity="center"
             android:inputType="textPassword"
             android:textSize="18sp" />
@@ -92,6 +94,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/phone_container"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -107,7 +110,7 @@
             android:id="@+id/phone_et"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/pink"
+            android:background="@drawable/input_field"
             android:gravity="center"
             android:inputType="phone"
             android:textSize="18sp" />
@@ -116,6 +119,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/id_container"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -133,7 +137,7 @@
             android:id="@+id/id_et"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/pink"
+            android:background="@drawable/input_field"
             android:drawableStart="@drawable/identity_card"
             android:gravity="center"
             android:inputType="number"
