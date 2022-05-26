@@ -26,7 +26,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:fontFamily="cursive"
         android:text="@string/about"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@id/container_cv"

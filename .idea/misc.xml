@@ -9,15 +9,15 @@
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/drawable/ic_person.xml" value="0.159" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/drawable/ic_profile.xml" value="0.159" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/accepted_donation_list_item.xml" value="0.33" />
-        <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_about.xml" value="0.1921875" />
+        <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_about.xml" value="0.33" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_accept_patient_requests.xml" value="0.1921875" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_accepted_donation_requests.xml" value="0.15775972637879435" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_available_hospitals.xml" value="0.15775972637879435" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_choose_location.xml" value="0.22" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_donor_home.xml" value="0.12604263206672844" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_donor_profile.xml" value="0.25" />
-        <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_fill_donor_profile.xml" value="0.15775972637879435" />
-        <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_fill_patient_profile.xml" value="0.18" />
+        <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_fill_donor_profile.xml" value="0.25" />
+        <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_fill_patient_profile.xml" value="0.25" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_forgot_password.xml" value="0.1921875" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_health_status.xml" value="0.25" />
         <entry key="..\:/Work/Freelance/Blood Pal/app/src/main/res/layout/activity_hospital_blood_requests.xml" value="0.15775972637879435" />

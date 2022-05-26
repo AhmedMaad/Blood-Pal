@@ -10,7 +10,9 @@
         android:id="@+id/container_cv"
         style="@style/Container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="-13dp"
+        tools:layout_editor_absoluteY="64dp" />
 
     <ImageView
         android:id="@+id/back_btn"
@@ -28,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Donor Email:"
+        android:text="Patient Email:"
         app:layout_constraintBottom_toBottomOf="@id/email_spinner"
         app:layout_constraintStart_toStartOf="@id/container_cv"
         app:layout_constraintTop_toTopOf="@id/container_cv" />
